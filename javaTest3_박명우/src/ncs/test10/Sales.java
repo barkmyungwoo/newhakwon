@@ -16,7 +16,7 @@ public class Sales extends Employee implements Bonus{
 
 	@Override
 	public void incentive(int pay) {
-		super.setSalary((double)(super.getSalary()+(pay*1.3)));
+		super.setSalary((double)(super.getSalary()+(pay*1.2)));
 	}
 
 }
