@@ -1,21 +1,22 @@
 package io.silsub3;
 
+import java.io.*; 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Book {
+public class Book implements Serializable{
 
 	String title; // 도서명
 	String author; // 저자
 	int price; // 가격
-	Calendar dates = new GregorianCalendar(); // 출판날짜
+	Calendar dates; // 출판날짜
 	double discountRate; // 할인율
 	
-	public Book(String title, String author, int price, Calendar dates, double discountRate) {
+	public Book(String title, String author,int year, int month, int day, int price, double discountRate) {
 		this.title = title;
 		this.author = author;
 		this.price = price;
-		this.dates = dates;
+		this.dates = new GregorianCalendar(year, month, day );
 		this.discountRate = discountRate;
 	}
 
@@ -63,7 +64,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return  title + ", author=" + author + ", price=" + price + ", dates=" + dates
+		return  title + ", author=" + author + ", price=" + price + ", dates=" + dates.get(dates.YEAR)+", "+dates.get(dates.MONTH)+", "+dates.get(dates.DAY_OF_MONTH)
 				+ ", discountRate=" + discountRate;		
 	}
 	
